@@ -1,0 +1,115 @@
+:root {
+    color-scheme: dark;
+    --bg: #07050d;
+    --bg-secondary: #140b24;
+    --panel: #1c1230cc;
+    --panel-border: #5e2ca580;
+    --primary: #b388ff;
+    --text: #f4edff;
+    --muted: #ccb8ea;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 12% 10%, #522a8f55, transparent 45%),
+        radial-gradient(circle at 85% 15%, #7f39fb40, transparent 38%),
+        linear-gradient(160deg, var(--bg) 0%, var(--bg-secondary) 100%);
+    color: var(--text);
+}
+
+.resume-page {
+    width: min(1050px, 100% - 2rem);
+    margin: 2rem auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.hero,
+.card {
+    background: var(--panel);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 10px 30px #00000055;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
+    letter-spacing: 0.04em;
+}
+
+.subtitle {
+    margin: 0.45rem 0 0;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+h2 {
+    margin: 0 0 0.7rem;
+    color: var(--primary);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    letter-spacing: 0.03em;
+}
+
+p {
+    margin: 0 0 0.45rem;
+    color: var(--muted);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: var(--text);
+    text-decoration-color: var(--primary);
+    text-underline-offset: 0.16em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:hover {
+    color: #d5bcff;
+    text-decoration-color: #d5bcff;
+}
+
+.split {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+    .resume-page {
+        width: min(760px, 100% - 1.5rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .resume-page {
+        width: calc(100% - 1rem);
+        margin: 1rem auto;
+        gap: 0.8rem;
+    }
+
+    .hero,
+    .card {
+        border-radius: 14px;
+        padding: 0.9rem;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+    }
+}
